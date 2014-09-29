@@ -1,0 +1,32 @@
+{
+  "name": "bw-handlebars",
+  "version": "1.0.0",
+  "description": "big wheel handlebars. This is a pass through for handlebars templating",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MikkoH/bw-handlebars.git"
+  },
+  "keywords": [
+    "big",
+    "wheel",
+    "pass",
+    "through",
+    "handlebars"
+  ],
+  "author": "Mikko Haapoja <me@mikkoh.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MikkoH/bw-handlebars/issues"
+  },
+  "homepage": "https://github.com/MikkoH/bw-handlebars",
+  "dependencies": {
+    "handlebars": "^2.0.0"
+  },
+  "devDependencies": {
+    "bw-objmodel": "git://github.com/MikkoH/bw-objmodel"
+  }
+}
