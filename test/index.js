@@ -1,15 +1,9 @@
-var bigwheelobjectmodel = require( 'bw-objmodel' ),
+var promise = require( 'promise' ),
 	bigwheelhandlebars = require( '../' ),
-	model = bigwheelobjectmodel( require( './data' ) ),
-	hb = bigwheelhandlebars( '<p>Hello {{name}}</p>' ),
-	output = function( out ) {
+	model = require( './data' ),
+	srcHBS = '<p>Hello {{name}}</p>';
 
-		console.log( 'using final pass:', out );
-	};
+promise.resolve( model.main ).then( bigwheelhandlebars( srcHBS ) ).then( function( html ) {
 
-// all of the following will output: <p>Hello Matti and Teppo</p>
-model( 'main' )( hb )( output );
-console.log( 'using function notation:', model( 'main' )( hb )() );
-console.log( 'using value variable:', model( 'main' )( hb ).value );
-
-model( 'main' )( bigwheelhandlebars( 'What\'s up {{name}}?' ) )( output );
+	console.log( html );
+});

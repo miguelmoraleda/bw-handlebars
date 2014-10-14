@@ -1,21 +1,21 @@
-var handlebars = require( 'handlebars' );
+var handlebars = require( 'handlebars' ),
+	promise = require( 'promise' );
 
-module.exports = function( data ) {
+module.exports = function( template ) {
 
-	var template = handlebars.compile( data );
+	var hbs = handlebars.compile( template );
 
-	return function( toTemplate ) {
+	return function( data ) {
 
-		var rVal = function( passto ) {
+		return new promise( function( onOk, onErr ) {
 
-			if( passto )
-				return passto( rVal.value );
-			else
-				return rVal.value;
-		};
+			try {
 
-		rVal.value = template( toTemplate );
+				onOk( hbs( data ) );
+			} catch( e ) {
 
-		return rVal;
-	}
+				onErr( e );
+			}
+		});
+	};	
 };

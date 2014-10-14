@@ -1,4 +1,4 @@
 bw-handlebars
 =============
 
-big wheel handlebars. This is a pass through for handlebars templating
+big wheel handlebars. This is a Promise for handlebars templating
