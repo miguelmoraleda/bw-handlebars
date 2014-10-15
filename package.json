@@ -24,7 +24,8 @@
   },
   "homepage": "https://github.com/MikkoH/bw-handlebars",
   "dependencies": {
-    "handlebars": "^2.0.0"
+    "handlebars": "^2.0.0",
+    "promise": "^6.0.0"
   },
   "devDependencies": {
     "bw-objmodel": "git://github.com/MikkoH/bw-objmodel"
