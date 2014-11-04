@@ -1,21 +1,24 @@
 var handlebars = require( 'handlebars' ),
 	promise = require( 'promise' );
 
-module.exports = function( template ) {
+module.exports = function( data ) {
+	
+	return new promise( function( onOk, onErr ) {
 
-	var hbs = handlebars.compile( template );
+		try {
 
-	return function( data ) {
+			if( data.model ) {
+			
+				data.dataDOM = handlebars.compile( data.dataHBS )( data.model );
 
-		return new promise( function( onOk, onErr ) {
+				onOk( data );
+			} else {
 
-			try {
-
-				onOk( hbs( data ) );
-			} catch( e ) {
-
-				onErr( e );
+				onErr( new Error( 'no model defined in data' ) );
 			}
-		});
-	};	
-};
+		} catch( e ) {
+
+			onErr( e );
+		}
+	});
+};	
