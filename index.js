@@ -7,11 +7,14 @@ module.exports = function( data ) {
 
 		try {
 
-			if( data.model ) {
+			if( data.model && data.dataHBS ) {
 			
 				data.dataDOM = handlebars.compile( data.dataHBS )( data.model );
 
 				onOk( data );
+			} else if( !data.dataHBS ) {
+
+				onErr( new Error( 'no handlebars data passed' ) );
 			} else {
 
 				onErr( new Error( 'no model defined in data' ) );
