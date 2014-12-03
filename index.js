@@ -9,7 +9,7 @@ module.exports = function( data ) {
 
 			if( data.model && data.dataHBS ) {
 			
-				data.dataDOM = handlebars.compile( data.dataHBS )( data.model );
+				data.dataDOM = handlebars.compile( data.dataHBS.trim() )( data.model );
 
 				onOk( data );
 			} else if( !data.dataHBS ) {
